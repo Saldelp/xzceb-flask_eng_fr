@@ -1,3 +1,7 @@
+"""
+    This module provides APIs for english to/from french translation 
+    by using IBM Watson Language Translation Service
+"""
 import json
 from ibm_watson import LanguageTranslatorV3
 from ibm_watson import ApiException
@@ -19,7 +23,9 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
-    """ API to perform english to french translation """
+    """ 
+        API to perform english to french translation 
+    """
     if englishText is None:
         return ""
     try:
@@ -37,7 +43,9 @@ def englishToFrench(englishText):
         return "en-fr translation method failed with status code " + str(ex.code) + ": " + ex.message
 
 def frenchToEnglish(frenchText):
-    """ API to perform french to english translation """
+    """ 
+        API to perform french to english translation 
+    """
     if frenchText is None:
         return ""
     try:
@@ -52,3 +60,4 @@ def frenchToEnglish(frenchText):
         return englishText
     except ApiException as ex:
         print("Method failed with status code " + str(ex.code) + ": " + ex.message)
+        return "fr-en translation method failed with status code " + str(ex.code) + ": " + ex.message
