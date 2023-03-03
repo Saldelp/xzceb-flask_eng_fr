@@ -22,42 +22,34 @@ language_translator = LanguageTranslatorV3(
 
 language_translator.set_service_url(url)
 
-def englishToFrench(englishText):
+def english_to_french(english_text):
     """ 
         API to perform english to french translation 
     """
-    if englishText is None:
+    if english_text is None:
         return ""
     try:
-        # Check that input text is english
-        # if englishText is None:
-        #     return "Source text is not in english"
-        # Invoke tranlsator method
         translation = language_translator.translate(
-            text=englishText,
+            text=english_text,
             model_id='en-fr').get_result()
-        frenchText = translation["translations"][0]["translation"]            
-        return frenchText
+        french_text = translation.get("translations")[0].get("translation")            
+        return french_text
     except ApiException as ex:
         print("Method failed with status code " + str(ex.code) + ": " + ex.message)
         return "en-fr translation method failed with status code " + str(ex.code) + ": " + ex.message
 
-def frenchToEnglish(frenchText):
+def french_to_english(french_text):
     """ 
         API to perform french to english translation 
     """
-    if frenchText is None:
+    if french_text is None:
         return ""
     try:
-        # Check that input text is french
-        # if frenchText is None:
-        #     return "Source text is not in french"
-        # Invoke tranlsator method
         translation = language_translator.translate(
-            text=frenchText,
+            text=french_text,
             model_id='fr-en').get_result()
-        englishText = translation["translations"][0]["translation"] 
-        return englishText
+        english_text = translation.get("translations")[0].get("translation")
+        return english_text
     except ApiException as ex:
         print("Method failed with status code " + str(ex.code) + ": " + ex.message)
         return "fr-en translation method failed with status code " + str(ex.code) + ": " + ex.message
