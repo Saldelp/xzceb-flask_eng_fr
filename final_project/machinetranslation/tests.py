@@ -18,6 +18,14 @@ class TestEnglishToFrenchTranslation(unittest.TestCase):
         output_text = english_to_french(input_text)
         self.assertEqual(output_text, expected_text)
 
+    def test_e2f(self):
+        input_text = "Hello"
+        expected_text = "Bonjour"
+        output_text = english_to_french(input_text)
+        self.assertEqual(output_text, expected_text)
+
+
+
 class TestFrenchToEnglishTranslation(unittest.TestCase):
     def test_f2e_null_input(self):
         # 1. Input none
@@ -30,6 +38,13 @@ class TestFrenchToEnglishTranslation(unittest.TestCase):
         expected_text = ""
         output_text = french_to_english(input_text)
         self.assertEqual(output_text, expected_text)
+
+    def test_f2e(self):
+        input_text = "Bonjour"
+        expected_text = "Hello"
+        output_text = french_to_english(input_text)
+        self.assertEqual(output_text, expected_text)
+
 
 if __name__ == '__main__':
     unittest.main()
