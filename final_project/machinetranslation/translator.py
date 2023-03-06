@@ -26,7 +26,7 @@ def english_to_french(english_text):
     """
     API to perform english to french translation
     """
-    if english_text is None:
+    if english_text is None or english_text == "":
         return ""
     try:
         translation = language_translator.translate(
@@ -43,7 +43,7 @@ def french_to_english(french_text):
     """
     API to perform french to english translation
     """
-    if french_text is None:
+    if french_text is None or french_text == "":
         return ""
     try:
         translation = language_translator.translate(
